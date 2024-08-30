@@ -4,3 +4,4 @@ export * from './ui/card';
 export * from './ui/carousel';
 
 export * from './banner';
+export * from './combobox';
