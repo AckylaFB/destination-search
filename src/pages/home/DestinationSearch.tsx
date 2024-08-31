@@ -24,6 +24,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	loading?: boolean;
 	placeholder: string;
 	onSelectDestination?: (destination: Destination) => void;
+	hasError?: boolean;
 }
 
 export function DestinationSearch({
@@ -33,6 +34,7 @@ export function DestinationSearch({
 	loading,
 	placeholder,
 	onSelectDestination,
+	hasError,
 	...args
 }: Props) {
 	const [open, setOpen] = useState(false);
@@ -66,7 +68,14 @@ export function DestinationSearch({
 							onValueChange={onChangeInputValue}
 						/>
 						<CommandList>
-							<CommandEmpty>No destination found.</CommandEmpty>
+							{hasError ? (
+								<CommandEmpty className="p-2 text-center text-sm text-red-500">
+									An error occurred while fetching destinations. Please try
+									again.
+								</CommandEmpty>
+							) : (
+								<CommandEmpty>No destination found.</CommandEmpty>
+							)}
 							<CommandGroup>
 								{destinations.map((destination) => (
 									<CommandItem

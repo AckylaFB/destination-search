@@ -30,7 +30,7 @@ export function Home() {
 	};
 
 	useEffect(() => {
-		if (debouncedSearchQuery) {
+		if (debouncedSearchQuery && debouncedSearchQuery.length >= 3) {
 			dispatch(fetchDestinations(debouncedSearchQuery));
 		}
 	}, [debouncedSearchQuery]);

@@ -59,6 +59,13 @@ const slice = createSlice({
 			state.isFetching = false;
 			state.hasFetchError = true;
 		});
+
+		builder.addCase(
+			thunkActions.fetchNearbyDestinations.fulfilled,
+			(state, action) => {
+				state.suggestedDestinations = action.payload;
+			},
+		);
 	},
 });
 

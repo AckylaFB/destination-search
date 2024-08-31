@@ -23,6 +23,7 @@ export function DestinationPage() {
 	const handleDestinationClick = (destination: Destination) => {
 		dispatch(thunkActions.fetchDestinations(destination.name));
 		dispatch(actions.setSelectedDestination(destination));
+		dispatch(thunkActions.fetchNearbyDestinations(destination));
 		navigate('/destination');
 	};
 

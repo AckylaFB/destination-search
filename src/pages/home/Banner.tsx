@@ -12,11 +12,13 @@ export function Banner() {
 	const { selectors, actions } = useConnector();
 	const navigate = useNavigate();
 
-	const { isFetching, destinations, searchQuery } = selectors;
-	const { setSearchQuery, setSelectedDestination } = actions;
+	const { isFetching, hasFetchError, destinations, searchQuery } = selectors;
+	const { setSearchQuery, setSelectedDestination, fetchNearbyDestinations } =
+		actions;
 
 	const onDestinationSelection = (destination: Destination) => {
 		dispatch(setSelectedDestination(destination));
+		dispatch(fetchNearbyDestinations(destination));
 		navigate('/destination');
 	};
 
@@ -30,11 +32,12 @@ export function Banner() {
 			<DestinationSearch
 				className="w-1/3"
 				destinations={destinations}
-				placeholder="Start typing to search"
+				placeholder="Type at least 3 characters to search"
 				inputValue={searchQuery}
 				onChangeInputValue={(value) => dispatch(setSearchQuery(value))}
 				loading={isFetching}
 				onSelectDestination={onDestinationSelection}
+				hasError={hasFetchError}
 			/>
 		</S.BannerContainer>
 	);

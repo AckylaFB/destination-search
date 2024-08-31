@@ -21,6 +21,7 @@ export function useConnector() {
 		setSelectedDestination: destinationsActions.setSelectedDestination,
 		fetchDestinations: thunkActions.fetchDestinations,
 		fetchTrendingDestinations: thunkActions.fetchTrendingDestinations,
+		fetchNearbyDestinations: thunkActions.fetchNearbyDestinations,
 	};
 
 	return {
