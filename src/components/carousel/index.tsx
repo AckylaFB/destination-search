@@ -1,13 +1,12 @@
 import { Destination } from '@/@types';
+import { Card, CardContent } from '@/components';
 import {
-	Card,
-	CardContent,
 	Carousel,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious,
-} from '@/components';
+} from '@/components/ui/carousel';
 
 interface Props {
 	destinations: Destination[];

@@ -23,6 +23,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	onChangeInputValue: (value: string) => void;
 	loading?: boolean;
 	placeholder: string;
+	onSelectDestination?: (destination: Destination) => void;
 }
 
 export function DestinationSearch({
@@ -31,6 +32,7 @@ export function DestinationSearch({
 	onChangeInputValue,
 	loading,
 	placeholder,
+	onSelectDestination,
 	...args
 }: Props) {
 	const [open, setOpen] = useState(false);
@@ -73,6 +75,7 @@ export function DestinationSearch({
 										onSelect={() => {
 											setValue(destination);
 											setOpen(false);
+											onSelectDestination?.(destination);
 										}}
 									>
 										<Check

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppDispatch } from '@/store';
 
-import { CarouselComponent } from './Carousel';
+import { CarouselComponent } from '@/components';
 import { Banner } from './Banner';
 import { useConnector } from './connector';
 import { useDebounce } from '@/hooks';
@@ -11,7 +11,7 @@ export function Home() {
 	const dispatch = useAppDispatch();
 	const { selectors, actions } = useConnector();
 
-	const { trendingDestinations, searchQuery } = selectors;
+	const { suggestedDestinations, searchQuery } = selectors;
 	const { fetchTrendingDestinations, fetchDestinations } = actions;
 
 	const debouncedSearchQuery = useDebounce<string>(searchQuery, 500);
@@ -34,7 +34,7 @@ export function Home() {
 				<h3 className="mb-8 text-xl font-semibold text-sky-600 shadow-slate-200">
 					Trending Destinations
 				</h3>
-				<CarouselComponent destinations={trendingDestinations} />
+				<CarouselComponent destinations={suggestedDestinations} />
 			</section>
 		</>
 	);

@@ -9,12 +9,14 @@ export interface Destination {
 	currency: string;
 	latitude: number;
 	longitude: number;
+	imageUrl: string;
 }
 
 export interface DestinationState {
 	cities: EntityState<Destination, number>;
-	trending: Destination[];
+	suggestedDestinations: Destination[];
 	searchQuery: string;
+	selectedDestination: Destination | null;
 	isFetching: boolean;
 	hasFetchError: boolean;
 }

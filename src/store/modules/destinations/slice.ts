@@ -12,8 +12,9 @@ export const adapter = createEntityAdapter<Destination>({});
 
 const initialState: DestinationState = {
 	cities: adapter.getInitialState(),
-	trending: [],
+	suggestedDestinations: [],
 	searchQuery: '',
+	selectedDestination: null,
 	isFetching: false,
 	hasFetchError: false,
 };
@@ -25,12 +26,18 @@ const slice = createSlice({
 		setSearchQuery: (state, action: PayloadAction<string>) => {
 			state.searchQuery = action.payload;
 		},
+		setSelectedDestination: (
+			state,
+			action: PayloadAction<Destination | null>,
+		) => {
+			state.selectedDestination = action.payload;
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(
 			thunkActions.fetchTrendingDestinations.fulfilled,
 			(state, action) => {
-				state.trending = action.payload;
+				state.suggestedDestinations = action.payload;
 			},
 		);
 

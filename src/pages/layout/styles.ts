@@ -15,6 +15,7 @@ export const Header = styled.header`
 
 	position: absolute;
 	top: 0;
+	z-index: 1;
 `;
 
 export const Logo = styled.div`

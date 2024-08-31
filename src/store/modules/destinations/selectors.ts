@@ -8,9 +8,14 @@ export const getDestinations = adapter.getSelectors<RootState>(
 
 const selectSelf = (state: RootState) => state.destinations;
 
-export const trendingDestinations = createDraftSafeSelector(
+export const suggestedDestinations = createDraftSafeSelector(
 	selectSelf,
-	(state) => state.trending,
+	(state) => state.suggestedDestinations,
+);
+
+export const selectedDestination = createDraftSafeSelector(
+	selectSelf,
+	(state) => state.selectedDestination,
 );
 
 export const isFetching = createDraftSafeSelector(
