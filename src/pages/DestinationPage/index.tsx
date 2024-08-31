@@ -1,6 +1,14 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { CarouselComponent } from '@/components';
-import { useAppSelector } from '@/store';
-import { selectors as destinationsSelectors } from '@/store/modules/destinations';
+import { useAppDispatch, useAppSelector } from '@/store';
+import {
+	selectors as destinationsSelectors,
+	actions,
+	thunkActions,
+} from '@/store/modules/destinations';
+import { Destination } from '@/@types';
 
 export function DestinationPage() {
 	const suggestedDestinations = useAppSelector(
@@ -9,6 +17,20 @@ export function DestinationPage() {
 	const selectedDestination = useAppSelector(
 		destinationsSelectors.selectedDestination,
 	);
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+
+	const handleDestinationClick = (destination: Destination) => {
+		dispatch(thunkActions.fetchDestinations(destination.name));
+		dispatch(actions.setSelectedDestination(destination));
+		navigate('/destination');
+	};
+
+	useEffect(() => {
+		if (!selectedDestination) {
+			navigate('/');
+		}
+	}, [selectedDestination]);
 
 	return (
 		<>
@@ -21,10 +43,36 @@ export function DestinationPage() {
 			</header>
 
 			<section className="flex flex-col p-8">
+				<h1 className="mb-4 text-3xl font-bold text-sky-800">
+					{selectedDestination?.name}
+				</h1>
+				<p className="mb-6 text-lg text-gray-700">
+					{selectedDestination?.description}
+				</p>
+				<div className="grid grid-cols-2 gap-4">
+					<div className="flex flex-col">
+						<span className="text-sm font-semibold text-gray-600">Country</span>
+						<span className="text-lg text-gray-800">
+							{selectedDestination?.country}
+						</span>
+					</div>
+					<div className="flex flex-col">
+						<span className="text-sm font-semibold text-gray-600">Climate</span>
+						<span className="text-lg text-gray-800">
+							{selectedDestination?.climate}
+						</span>
+					</div>
+				</div>
+			</section>
+
+			<section className="flex flex-col p-8">
 				<h3 className="mb-8 text-xl font-semibold text-sky-600 shadow-slate-200">
 					Nearby Destinations
 				</h3>
-				<CarouselComponent destinations={suggestedDestinations} />
+				<CarouselComponent
+					destinations={suggestedDestinations}
+					onDestinationClick={handleDestinationClick}
+				/>
 			</section>
 		</>
 	);

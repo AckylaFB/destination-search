@@ -6,15 +6,28 @@ import { CarouselComponent } from '@/components';
 import { Banner } from './Banner';
 import { useConnector } from './connector';
 import { useDebounce } from '@/hooks';
+import { useNavigate } from 'react-router-dom';
+import { Destination } from '@/@types';
 
 export function Home() {
 	const dispatch = useAppDispatch();
 	const { selectors, actions } = useConnector();
+	const navigate = useNavigate();
 
 	const { suggestedDestinations, searchQuery } = selectors;
-	const { fetchTrendingDestinations, fetchDestinations } = actions;
+	const {
+		fetchTrendingDestinations,
+		fetchDestinations,
+		setSelectedDestination,
+	} = actions;
 
 	const debouncedSearchQuery = useDebounce<string>(searchQuery, 500);
+
+	const handleDestinationClick = (destination: Destination) => {
+		dispatch(fetchDestinations(destination.name));
+		dispatch(setSelectedDestination(destination));
+		navigate('/destination');
+	};
 
 	useEffect(() => {
 		if (debouncedSearchQuery) {
@@ -34,7 +47,10 @@ export function Home() {
 				<h3 className="mb-8 text-xl font-semibold text-sky-600 shadow-slate-200">
 					Trending Destinations
 				</h3>
-				<CarouselComponent destinations={suggestedDestinations} />
+				<CarouselComponent
+					destinations={suggestedDestinations}
+					onDestinationClick={handleDestinationClick}
+				/>
 			</section>
 		</>
 	);

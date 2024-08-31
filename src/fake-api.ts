@@ -46,7 +46,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 48.8566,
 		longitude: 2.3522,
-		imageUrl: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34', // Image of Eiffel Tower, Paris
+		imageUrl:
+			'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 2,
@@ -58,7 +59,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 41.9028,
 		longitude: 12.4964,
-		imageUrl: 'https://images.unsplash.com/photo-1568572933382-74d440642117', // Image of Colosseum, Rome
+		imageUrl:
+			'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 3,
@@ -70,7 +72,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 41.3851,
 		longitude: 2.1734,
-		imageUrl: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce', // Image of Sagrada Familia, Barcelona
+		imageUrl:
+			'https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 4,
@@ -82,7 +85,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 52.3702,
 		longitude: 4.8952,
-		imageUrl: 'https://images.unsplash.com/photo-1537022368-7ff8c74fbf8b', // Image of Canals, Amsterdam
+		imageUrl:
+			'https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 5,
@@ -94,7 +98,8 @@ const destinations = [
 		currency: 'Czech Crown',
 		latitude: 50.0755,
 		longitude: 14.4378,
-		imageUrl: 'https://images.unsplash.com/photo-1528305246944-0bba1e5c8a2a', // Image of Charles Bridge, Prague
+		imageUrl:
+			'https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 6,
@@ -106,7 +111,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 37.9838,
 		longitude: 23.7275,
-		imageUrl: 'https://images.unsplash.com/photo-1559370368-e4840d9d3722', // Image of Parthenon, Athens
+		imageUrl:
+			'https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 7,
@@ -118,7 +124,8 @@ const destinations = [
 		currency: 'Hungarian Forint',
 		latitude: 47.4979,
 		longitude: 19.0402,
-		imageUrl: 'https://images.unsplash.com/photo-1512395760157-dc0c32f23a07', // Image of Parliament, Budapest
+		imageUrl:
+			'https://images.unsplash.com/photo-1551867633-194f125bddfa?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 8,
@@ -130,7 +137,8 @@ const destinations = [
 		currency: 'Croatian Kuna',
 		latitude: 42.6507,
 		longitude: 18.0944,
-		imageUrl: 'https://images.unsplash.com/photo-1563910340133-f14ba5d02cf0', // Image of Old Town, Dubrovnik
+		imageUrl:
+			'https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 9,
@@ -142,7 +150,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 48.2082,
 		longitude: 16.3738,
-		imageUrl: 'https://images.unsplash.com/photo-1573495612937-dc6e62f81f5a', // Image of St. Charles Church, Vienna
+		imageUrl:
+			'https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 10,
@@ -154,7 +163,8 @@ const destinations = [
 		currency: 'Pound Sterling',
 		latitude: 55.9533,
 		longitude: 3.1883,
-		imageUrl: 'https://images.unsplash.com/photo-1552155448-15d6a0912ddf', // Image of Edinburgh Castle, Edinburgh
+		imageUrl:
+			'https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 11,
@@ -166,7 +176,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 52.52,
 		longitude: 13.405,
-		imageUrl: 'https://images.unsplash.com/photo-1566852623388-0c37305318e2', // Image of Brandenburg Gate, Berlin
+		imageUrl:
+			'https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 12,
@@ -178,7 +189,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 38.7223,
 		longitude: 9.1393,
-		imageUrl: 'https://images.unsplash.com/photo-1551892589-865f69869434', // Image of Belem Tower, Lisbon
+		imageUrl:
+			'https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 13,
@@ -190,7 +202,8 @@ const destinations = [
 		currency: 'Swedish Krona',
 		latitude: 59.3293,
 		longitude: 18.0686,
-		imageUrl: 'https://images.unsplash.com/photo-1551799341-a63d4788b174', // Image of Gamla Stan, Stockholm
+		imageUrl:
+			'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 14,
@@ -202,7 +215,8 @@ const destinations = [
 		currency: 'Polish Złoty',
 		latitude: 50.0647,
 		longitude: 19.945,
-		imageUrl: 'https://images.unsplash.com/photo-1557841348-b5663c340025', // Image of Main Market Square, Krakow
+		imageUrl:
+			'https://images.unsplash.com/photo-1606992894456-799462dacd65?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 15,
@@ -214,7 +228,8 @@ const destinations = [
 		currency: 'Icelandic Króna',
 		latitude: 64.1466,
 		longitude: -21.9426,
-		imageUrl: 'https://images.unsplash.com/photo-1575384066017-bcd811c00454', // Image of Reykjavik Cityscape
+		imageUrl:
+			'https://images.unsplash.com/photo-1490780960365-b5e36e1d824c?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 16,
@@ -226,7 +241,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 43.7696,
 		longitude: 11.2558,
-		imageUrl: 'https://images.unsplash.com/photo-1519512996018-9f5f39bcb130', // Image of Florence Cathedral
+		imageUrl:
+			'https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 17,
@@ -238,7 +254,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 53.3498,
 		longitude: -6.2603,
-		imageUrl: 'https://images.unsplash.com/photo-1590330634813-2c2e7357ea4b', // Image of Temple Bar, Dublin
+		imageUrl:
+			'https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 18,
@@ -250,7 +267,8 @@ const destinations = [
 		currency: 'Norwegian Krone',
 		latitude: 59.9139,
 		longitude: 10.7522,
-		imageUrl: 'https://images.unsplash.com/photo-1541199249251-f713e6145474', // Image of Oslo Opera House
+		imageUrl:
+			'https://images.unsplash.com/photo-1513622118278-bc041b3c13ed?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 19,
@@ -262,7 +280,8 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 60.1699,
 		longitude: 24.9384,
-		imageUrl: 'https://images.unsplash.com/photo-1535481395974-c658ff38d13b', // Image of Helsinki Cathedral
+		imageUrl:
+			'https://images.unsplash.com/photo-1559131397-f94da358f7ca?auto=format&fit=crop&w=1000&q=80',
 	},
 	{
 		id: 20,
@@ -274,6 +293,7 @@ const destinations = [
 		currency: 'Euro',
 		latitude: 40.4168,
 		longitude: -3.7038,
-		imageUrl: 'https://images.unsplash.com/photo-1566150900385-cf98ed4a00ad', // Image of Royal Palace, Madrid
+		imageUrl:
+			'https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1000&q=80',
 	},
 ];
