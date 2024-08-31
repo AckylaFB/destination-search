@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch } from '@/store';
-
 import { CarouselComponent } from '@/components';
+import { useDebounce } from '@/hooks';
+import { Destination } from '@/@types';
+
 import { Banner } from './Banner';
 import { useConnector } from './connector';
-import { useDebounce } from '@/hooks';
-import { useNavigate } from 'react-router-dom';
-import { Destination } from '@/@types';
 
 export function Home() {
 	const dispatch = useAppDispatch();

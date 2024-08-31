@@ -2,28 +2,24 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CarouselComponent } from '@/components';
-import { useAppDispatch, useAppSelector } from '@/store';
-import {
-	selectors as destinationsSelectors,
-	actions,
-	thunkActions,
-} from '@/store/modules/destinations';
+import { useAppDispatch } from '@/store';
 import { Destination } from '@/@types';
 
+import { useConnector } from './connector';
+
 export function DestinationPage() {
-	const suggestedDestinations = useAppSelector(
-		destinationsSelectors.suggestedDestinations,
-	);
-	const selectedDestination = useAppSelector(
-		destinationsSelectors.selectedDestination,
-	);
+	const { selectors, actions } = useConnector();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
+	const { suggestedDestinations, selectedDestination } = selectors;
+	const { fetchDestinations, setSelectedDestination, fetchNearbyDestinations } =
+		actions;
+
 	const handleDestinationClick = (destination: Destination) => {
-		dispatch(thunkActions.fetchDestinations(destination.name));
-		dispatch(actions.setSelectedDestination(destination));
-		dispatch(thunkActions.fetchNearbyDestinations(destination));
+		dispatch(fetchDestinations(destination.name));
+		dispatch(setSelectedDestination(destination));
+		dispatch(fetchNearbyDestinations(destination));
 		navigate('/destination');
 	};
 
