@@ -19,6 +19,8 @@ type ExtendedProps = PopoverPrimitive.PopoverProps;
 export interface ComboboxProps<T extends object | string>
 	extends ExtendedProps {
 	items: T[];
+	inputValue: string;
+	onChangeInputValue: (value: string) => void;
 	placeholder?: string;
 	selectedItem?: T | null;
 	onChangeItem?: (item: T) => void;
@@ -39,6 +41,8 @@ export const Combobox = <T extends object | string>(
 		className,
 		items,
 		placeholder,
+		inputValue,
+		onChangeInputValue,
 		renderItem,
 		emptyLabel,
 		onChangeItem,
@@ -98,7 +102,11 @@ export const Combobox = <T extends object | string>(
 					className={cn('p-0', popoverContentProps?.className)}
 				>
 					<Command>
-						<CommandInput placeholder={placeholder} />
+						<CommandInput
+							placeholder={placeholder}
+							value={inputValue}
+							onValueChange={onChangeInputValue}
+						/>
 						<CommandList>
 							<CommandEmpty>{emptyLabel}</CommandEmpty>
 							<CommandGroup>

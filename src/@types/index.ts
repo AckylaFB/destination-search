@@ -13,6 +13,8 @@ export interface Destination {
 
 export interface DestinationState {
 	cities: EntityState<Destination, number>;
+	trending: Destination[];
+	searchQuery: string;
 	isFetching: boolean;
 	hasFetchError: boolean;
 }

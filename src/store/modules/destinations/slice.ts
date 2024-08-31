@@ -1,13 +1,19 @@
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import {
+	createEntityAdapter,
+	createSlice,
+	PayloadAction,
+} from '@reduxjs/toolkit';
 
 import { Destination, DestinationState } from '@/@types';
 
 import { actions as thunkActions } from './actions';
 
-const adapter = createEntityAdapter<Destination>({});
+export const adapter = createEntityAdapter<Destination>({});
 
 const initialState: DestinationState = {
 	cities: adapter.getInitialState(),
+	trending: [],
+	searchQuery: '',
 	isFetching: false,
 	hasFetchError: false,
 };
@@ -15,8 +21,19 @@ const initialState: DestinationState = {
 const slice = createSlice({
 	name: 'destinations',
 	initialState,
-	reducers: {},
+	reducers: {
+		setSearchQuery: (state, action: PayloadAction<string>) => {
+			state.searchQuery = action.payload;
+		},
+	},
 	extraReducers: (builder) => {
+		builder.addCase(
+			thunkActions.fetchTrendingDestinations.fulfilled,
+			(state, action) => {
+				state.trending = action.payload;
+			},
+		);
+
 		builder.addCase(thunkActions.fetchDestinations.pending, (state) => {
 			state.isFetching = true;
 			state.hasFetchError = false;
@@ -28,6 +45,7 @@ const slice = createSlice({
 				state.hasFetchError = false;
 
 				adapter.addMany(state.cities, action.payload);
+				state.searchQuery = '';
 			},
 		);
 		builder.addCase(thunkActions.fetchDestinations.rejected, (state) => {

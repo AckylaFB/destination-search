@@ -17,6 +17,24 @@ export const fetchDestinations = (query: string): Promise<Destination[]> => {
 	});
 };
 
+export const fetchTrendingDestinations = (): Promise<Destination[]> => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			const shuffledDestinations = [...destinations];
+
+			for (let i = shuffledDestinations.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[shuffledDestinations[i], shuffledDestinations[j]] = [
+					shuffledDestinations[j],
+					shuffledDestinations[i],
+				];
+			}
+
+			resolve(shuffledDestinations.slice(0, 5));
+		}, 500);
+	});
+};
+
 const destinations = [
 	{
 		id: 1,
